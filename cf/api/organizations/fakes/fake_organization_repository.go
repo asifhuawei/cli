@@ -62,6 +62,13 @@ func (fake *FakeOrganizationRepository) ListOrgs() (orgs []models.Organization, 
 	}
 }
 
+func (fake *FakeOrganizationRepository) GetRole(name string, orgName string) ([]models.Organization, error) {
+	fake.listOrgsMutex.Lock()
+	defer fake.listOrgsMutex.Unlock()
+	fake.listOrgsReturns.result1[0].OrganizationFields.Name = orgName
+	return fake.listOrgsReturns.result1, fake.listOrgsReturns.result2
+}
+
 func (fake *FakeOrganizationRepository) ListOrgsCallCount() int {
 	fake.listOrgsMutex.RLock()
 	defer fake.listOrgsMutex.RUnlock()
