@@ -91,7 +91,6 @@ var _ = Describe("Space Repository", func() {
 
 	Describe("finding spaces by role", func() {
 		It("returns the space with developer role", func() {
-
 			pageSpacesRequest := testapi.NewCloudControllerTestRequest(testnet.TestRequest{
 				Method: "GET",
 				Path:   "/v2/spaces?q=developer_guid:my-user-guid;q=name:my-space",
@@ -135,7 +134,6 @@ var _ = Describe("Space Repository", func() {
 		})
 
 		It("returns the space with manager role", func() {
-
 			pageSpacesRequest := testapi.NewCloudControllerTestRequest(testnet.TestRequest{
 				Method: "GET",
 				Path:   "/v2/users/my-user-guid/managed_spaces?q=organization_guid:my-org-guid;q=name:my-space",
@@ -181,7 +179,6 @@ var _ = Describe("Space Repository", func() {
 		})
 
 		It("returns the apiErr while fetching space role", func() {
-
 			pageSpacesRequest := testapi.NewCloudControllerTestRequest(testnet.TestRequest{
 				Method: "GET",
 				Path:   "/v2/users/my-user-guid/managed_spaces?q=organization_guid:my-org-guid;q=name:my-space",
@@ -207,7 +204,6 @@ var _ = Describe("Space Repository", func() {
 			Expect(apiErr).To(HaveOccurred())
 			Expect(handler).To(HaveAllRequestsCalled())
 		})
-
 	})
 
 	Describe("finding spaces by name", func() {

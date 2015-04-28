@@ -72,7 +72,6 @@ var _ = Describe("user-info command", func() {
 			requirementsFactory.Organization = org
 
 			configRepo = testconfig.NewRepositoryWithAccessToken(core_config.TokenInfo{Username: "user1"})
-
 			configRepo.SetOrganizationFields(models.OrganizationFields{
 				Name: "Org1",
 				Guid: "org1-guid",
@@ -80,7 +79,6 @@ var _ = Describe("user-info command", func() {
 		})
 
 		It("shows the roles for orgs when only Org is targeted", func() {
-
 			orgRepo.ListOfRolesOfAnOrg = map[string]string{
 				"manager_guid":         "Org1",
 				"billing_manager_guid": "Org1",
@@ -97,7 +95,6 @@ var _ = Describe("user-info command", func() {
 		})
 
 		It("shows the roles when proper org and space is targeted", func() {
-
 			orgRepo.ListOfRolesOfAnOrg = map[string]string{
 				"manager_guid":         "Org1",
 				"billing_manager_guid": "Org1",
@@ -113,7 +110,6 @@ var _ = Describe("user-info command", func() {
 			space := models.Space{}
 			space.Name = "Space1"
 			space.Guid = "space1-guid"
-
 			spaceRepo.FindByNameInOrgSpace = space
 			requirementsFactory.Space = space
 
@@ -121,7 +117,6 @@ var _ = Describe("user-info command", func() {
 				Name: "Space1",
 				Guid: "space1-guid",
 			})
-
 			runCommand()
 
 			Expect(ui.Outputs).To(ContainSubstrings(
@@ -132,7 +127,6 @@ var _ = Describe("user-info command", func() {
 		})
 
 		It("should fail when QueryParam is wrong", func() {
-
 			orgRepo.ListOfRolesOfAnOrg = map[string]string{
 				"apiErrorCheck1":  "Org1",
 				"apiErrorCheck12": "Org1",
@@ -145,9 +139,6 @@ var _ = Describe("user-info command", func() {
 				[]string{"Failed"},
 				[]string{"query param not found"},
 			))
-
 		})
-
 	})
-
 })

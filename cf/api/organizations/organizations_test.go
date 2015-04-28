@@ -83,7 +83,6 @@ var _ = Describe("Organization Repository", func() {
 
 	Describe("getting OrgRoles", func() {
 		It("getting Orgs with a manager role", func() {
-
 			req := testapi.NewCloudControllerTestRequest(testnet.TestRequest{
 				Method: "GET",
 				Path:   "/v2/organizations?q=manager_guid:my-user-guid;q=name:Org1",
@@ -105,12 +104,10 @@ var _ = Describe("Organization Repository", func() {
 			org, apiErr := repo.GetOrgRoleForUser("manager_guid", "Org1")
 			Expect(handler).To(HaveAllRequestsCalled())
 			Expect(apiErr).NotTo(HaveOccurred())
-
 			Expect(org.Name).To(Equal(existingOrg.Name))
 		})
 
 		It("getting Orgs with a billing manager role", func() {
-
 			req := testapi.NewCloudControllerTestRequest(testnet.TestRequest{
 				Method: "GET",
 				Path:   "/v2/organizations?q=billing_manager_guid:my-user-guid;q=name:Org1",
@@ -133,11 +130,9 @@ var _ = Describe("Organization Repository", func() {
 			Expect(handler).To(HaveAllRequestsCalled())
 			Expect(apiErr).NotTo(HaveOccurred())
 			Expect(org.Name).To(Equal(existingOrg.Name))
-
 		})
 
 		It("checking for apiErr", func() {
-
 			req := testapi.NewCloudControllerTestRequest(testnet.TestRequest{
 				Method: "GET",
 				Path:   "/v2/organizations?q=apiErr:my-user-guid;q=name:Org1",

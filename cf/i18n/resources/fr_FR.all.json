@@ -5156,7 +5156,7 @@
    },
    {
       "id": "Show user-info with roles",
-      "translation": "Show user-info with roles",
+      "translation": "Montrer user-info avec ces roles",
       "modified": false
    },
    {
@@ -5166,17 +5166,17 @@
    },
    {
       "id": "Getting user information...",
-      "translation": "Getting user information...",
+      "translation": "En trains d'obtenir information pour l'utilisateur courrant...",
       "modified": false
    },
    {
       "id": "User",
-      "translation": "User",
+      "translation": "Utilisateur",
       "modified": false
    },
    {
       "id": "Role",
-      "translation": "Role",
+      "translation": "Rôle",
       "modified": false
    }
 ]
